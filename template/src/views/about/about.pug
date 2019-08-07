@@ -1,7 +1,9 @@
-doctype html
+<!DOCTYPE html>
 html(lang="en")
-  head
-    title= pageTitle
+  include ../../components/head/head.pug
   body
-    h1 Pug - template
-    h2 Pug - about page
+    include ../../components/header/header.pug
+    .container
+      .title
+        h1 Learn more about template
+        span at #[a(href="https://github.com/Qxiaoqi/webpack" target="_blank") github]

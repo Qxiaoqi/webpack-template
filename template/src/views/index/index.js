@@ -1,4 +1,6 @@
 import _ from 'lodash';
+import '../../components/header/header.js';
+import '../../style/styles.less';
 import './index.less';
 
 

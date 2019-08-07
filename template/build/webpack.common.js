@@ -6,9 +6,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // 分离css
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const glob = require('glob');
-const devMode = process.env.NODE_ENV !== 'production';
 
-
+console.log("common:", process.env.NODE_ENV);
 /* 
 * name: 文件名
 * chunks: 引入js文件名
@@ -55,9 +54,6 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, '..', 'dist')
   },
-  devServer: {
-    contentBase: './dist',
-  },
   // 配置代码分离相关参数
   optimization: {
     splitChunks: {
@@ -87,8 +83,8 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: devMode ? '[name].css' : '[name].[hash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+      filename: '[name].css',
+      chunkFilename: '[id].css'
     }),
     new CleanWebpackPlugin()
     // new HtmlWebpackPlugin({

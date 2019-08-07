@@ -1,15 +1,9 @@
-doctype html
+<!DOCTYPE html>
 html(lang="en")
-  head
-    title= pageTitle
+  include ../../components/head/head.pug
   body
-    h1 Pug - node template engine
-    #root
-    #container.col
-      if youAreUsingPug
-        p You are amazing
-      else
-        p Get on it!
-      p.
-        Pug is a terse and simple templating language with a
-        strong focus on performance and powerful features.
+    include ../../components/header/header.pug
+    .container
+      .title
+        h1 Welcome to use my 
+        span multiple webpack template
