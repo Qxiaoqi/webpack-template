@@ -14,7 +14,12 @@ console.log("common:", process.env.NODE_ENV);
 */
 function getHtmlConfig(name, chunks) {
   return {
+    {{#if_eq htmlChoice "pug"}}
     template: `./src/views/${name}/${name}.pug`,
+    {{/if_eq}}
+    {{#if_eq htmlChoice "html"}}
+    template: `./src/views/${name}/${name}.html`,
+    {{/if_eq}}
     filename: `${name}.html`,
     // favicon: './favicon.ico',
     // title: title,
@@ -43,7 +48,6 @@ function getEntry() {
       n = n.split('/')[1];
       eArr.push(name);
       entry[n] = eArr;
-      // console.log("entry:", entry);
     });
   return entry;
 };
@@ -87,15 +91,6 @@ module.exports = {
       chunkFilename: '[id].css'
     }),
     new CleanWebpackPlugin()
-    // new HtmlWebpackPlugin({
-    //   title: 'webpack-simple',
-    //   template: './src/views/index/index.pug',
-    //   filename: 'index.html',
-    //   // script放在body最下面
-    //   inject: true,
-    //   // 按需引入js
-    //   chunks: ['common', 'index']
-    // }),
   ],
   module: {
     rules: [
@@ -113,6 +108,7 @@ module.exports = {
           'css-loader',
         ]
       },
+      {{#if_eq cssChoice "less"}}   
       {
         test: /\.less$/,
         use: [
@@ -126,11 +122,29 @@ module.exports = {
           'less-loader',
         ],
       },
+      {{/if_eq}}
+      {{#if_eq cssChoice "scss"}}
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: process.env.NODE_ENV === 'development',
+            },
+          },
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+      {{/if_eq}}
+      {{#if_eq htmlChoice "pug"}}
       {
         test: /\.pug$/,
         include: path.join(__dirname, '..', 'src'),
         loaders: [ 'pug-loader' ]
       },
+      {{/if_eq}}
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [

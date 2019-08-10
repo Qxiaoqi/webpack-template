@@ -1,13 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  text-align: center;
-}
-
-{{#if_eq htmlChoice "html"}}
 header {
   height: 60px;
   line-height: 60px;
@@ -25,4 +15,3 @@ header {
     text-decoration: none;
   }
 }
-{{/if_eq}}

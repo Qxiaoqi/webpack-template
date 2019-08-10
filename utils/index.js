@@ -64,7 +64,7 @@ Documentation can be found at https://github.com/Qxiaoqi/webpack-template
  * @param {Object} data Data from the questionnaire
  */
 function installMsg(data) {
-  return !data.autoInstall ? 'npm install (or if using yarn: yarn)\n  ' : ''
+  return !data.autoInstall ? 'npm install\n  ' : ''
 }
 
 /**

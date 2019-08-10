@@ -1,7 +1,15 @@
-import _ from 'lodash';
+// import _ from 'lodash';
+{{#if_eq htmlChoice "pug"}}
 import '../../components/header/header.js';
+{{/if_eq}}
+{{#if_eq cssChoice "less"}}
 import '../../style/styles.less';
 import './index.less';
+{{/if_eq}}
+{{#if_eq cssChoice "scss"}}
+import '../../style/styles.scss';
+import './index.scss';
+{{/if_eq}}
 
 
 // function component() {
