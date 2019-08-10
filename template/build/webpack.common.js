@@ -7,7 +7,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const glob = require('glob');
 
-console.log("common:", process.env.NODE_ENV);
 /* 
 * name: 文件名
 * chunks: 引入js文件名

@@ -10,5 +10,3 @@ module.exports = merge(common, {
     })
   ]
 });
-
-console.log("prod:", process.env.NODE_ENV);
